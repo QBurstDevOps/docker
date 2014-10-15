@@ -12,11 +12,11 @@ RUN \
 RUN  \
   cd /opt && \
   wget http://project-rt.s3-website-us-east-1.amazonaws.com/softwares/node-v0.10.29-linux-x64.tar.gz && \
-  tar -xzf node-v0.10.28-linux-x64.tar.gz && \
-  mv node-v0.10.28-linux-x64 node && \
+  tar -xzf node-v0.10.29-linux-x64.tar.gz && \
+  mv node-v0.10.29-linux-x64 node && \
   cd /usr/local/bin && \
   ln -s /opt/node/bin/* . && \
-  rm -f /opt/node-v0.10.28-linux-x64.tar.gz
+  rm -f /opt/node-v0.10.29-linux-x64.tar.gz
 
 # Define default command.
 CMD ["bash"]
