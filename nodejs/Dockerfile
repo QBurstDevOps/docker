@@ -8,8 +8,8 @@
 FROM dockerfile/python
 
 # Install Node.js
+
 RUN \
-RUN  \
   cd /opt && \
   wget http://project-rt.s3-website-us-east-1.amazonaws.com/softwares/node-v0.10.29-linux-x64.tar.gz && \
   tar -xzf node-v0.10.29-linux-x64.tar.gz && \
