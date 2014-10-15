@@ -27,4 +27,5 @@ WORKDIR /data
 
 ADD app.js /var/www/app.js
 
+EXPOSE 80
 CMD ["/usr/bin/node", "/var/www/app.js"] 
