@@ -2,7 +2,7 @@ FROM ubuntu:12.04
 
 MAINTAINER QBurst
 
-RUN apt-get update; apt-get install -y unzip wget supervisor openssh-server curl sudo git
+RUN apt-get update; apt-get install -y unzip wget supervisor openssh-server curl sudo
 RUN curl -sSL https://get.docker.io/ubuntu/ | sudo sh
 RUN echo DOCKER_OPTS="-H tcp://127.0.0.1:4243 -H unix:///var/run/docker.sock" > /etc/default/docker
 ENV DOCKER_HOST tcp://localhost:4243
