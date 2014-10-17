@@ -1,0 +1,15 @@
+zookeeper:
+  image: qburstdevops/zookeeper
+  ports: 
+    - "2181"
+kafka:
+  image: qburstdevops/kafka
+  ports:
+    - "9092"
+  links: 
+    - zookeeper:zk
+  environment:
+    KAFKA_ADVERTISED_HOST_NAME: 172.17.42.1 
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+
