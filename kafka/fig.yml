@@ -1,7 +1,3 @@
-zookeeper:
-  image: qburstdevops/zookeeper
-  ports: 
-    - "2181"
 kafka:
   image: qburstdevops/kafka
   ports:
