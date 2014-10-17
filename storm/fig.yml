@@ -1,7 +1,7 @@
 zookeeper:
   image: qburstdevops/zookeeper
   ports: 
-    - "49181:2181"
+    - "2181"
     - "22"
 nimbus:
   image: qburstdevops/storm-nimbus
