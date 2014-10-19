@@ -1,0 +1,66 @@
+zookeeper:
+  build: zookeeper
+  ports:
+    - "42181:2181"
+  expose:
+    - "2888"
+    - "3888"
+  hostname: zookeeper
+nimbus:
+  build: storm
+  command: nimbus drpc
+  ports:
+    - "46627:6627"
+  expose:
+    - "3772"
+    - "3773"
+  links:
+    - zookeeper:zk
+  hostname: nimbus
+supervisor:
+  build: storm
+  command: supervisor logviewer
+  ports:
+    - "8000"
+  expose:
+    - "6700"
+  links:
+    - nimbus:nimbus
+    - zookeeper:zk
+  hostname: supervisor
+ui:
+  build: storm
+  command: ui
+  ports:
+    - "48080:8080"
+  links: 
+    - nimbus:nimbus
+    - zookeeper:zk
+  hostname: ui
+cli:
+  build: storm
+  command: cli
+  links:
+    - nimbus:nimbus
+    - zookeeper:zk
+  hostname: cli
+  volumes:
+    - .:/code
+  working_dir: /code
+kafka:
+  build: kafka
+  expose:
+    - "9092"
+  hostname: kafka
+  links:
+    - zookeeper:zk
+kafkacli:
+  build: kafka
+  command: cli
+  links:
+    - zookeeper:zk
+    - kafka:kafka
+  hostname: kafkacli
+  volumes:
+    - .:/code
+  working_dir: /code
