@@ -1,4 +1,6 @@
-# Storm on Docker
+
+Big Thank you to ryantsai
+
 
 Storm clustering environment on Docker, ZooKeeper and Kafka included. The quickest and easiest way of getting Storm cluster up and running, ready for submmiting your topologies.
 
@@ -6,7 +8,6 @@ This work is based on https://github.com/wurstmeister/storm-docker and https://g
 
 **Note the Docker version used to was 1.2.0, Storm version used was 0.9.2, Kafka version used was 0.8.1.1 (SCALA 2.9.2), ZooKeeper version used was 3.4.5.**
 
-## TL;DR
 
 First you need [Docker](https://docker.com/) and [Fig](http://orchardup.github.io/fig/index.html) installed.
 
