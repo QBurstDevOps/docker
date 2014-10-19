@@ -1,5 +1,5 @@
 
-Big Thank you to ryantsai
+Big Thanks to ryantsai
 
 
 Storm clustering environment on Docker, ZooKeeper and Kafka included. The quickest and easiest way of getting Storm cluster up and running, ready for submmiting your topologies.
