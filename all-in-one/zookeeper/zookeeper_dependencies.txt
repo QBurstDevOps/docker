@@ -1,0 +1,23 @@
+:~$ sudo apt-get install zookeeper=3.4.* zookeeperd=3.4.*
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Selected version '3.4.5+dfsg-1' (Ubuntu:14.04/trusty [all]) for 'zookeeper'
+Selected version '3.4.5+dfsg-1' (Ubuntu:14.04/trusty [all]) for 'zookeeperd'
+The following extra packages will be installed:
+  libjline-java liblog4j1.2-java libnetty-java libservlet2.5-java
+  libslf4j-java libxerces2-java libxml-commons-external-java
+  libxml-commons-resolver1.1-java libzookeeper-java libzookeeper-java-doc
+Suggested packages:
+  libjline-java-doc liblog4j1.2-java-doc libgnumail-java
+  libcommons-logging-java libxerces2-java-doc libxerces2-java-gcj
+  libxml-commons-resolver1.1-java-doc
+The following NEW packages will be installed:
+  libjline-java liblog4j1.2-java libnetty-java libservlet2.5-java
+  libslf4j-java libxerces2-java libxml-commons-external-java
+  libxml-commons-resolver1.1-java libzookeeper-java libzookeeper-java-doc
+  zookeeper zookeeperd
+0 upgraded, 12 newly installed, 0 to remove and 1 not upgraded.
+Need to get 5,178 kB of archives.
+After this operation, 16.4 MB of additional disk space will be used.
+Do you want to continue? [Y/n]
