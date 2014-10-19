@@ -1,5 +1,5 @@
 FROM ubuntu:14.10
-MAINTAINER bryantsai
+MAINTAINER QBurst
 
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 
