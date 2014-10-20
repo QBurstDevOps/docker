@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/bin/sh $KAFKA_HTTP_HOME/target/RELEASE/KafkaHttp_2.9.2-0.0.1/bin/kafka-http-endpoint.sh producer --broker-list $KAFKA_PORT_9092_TCP_ADDR:$KAFKA_PORT_9092_TCP_PORT
