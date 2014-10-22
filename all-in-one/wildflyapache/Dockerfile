@@ -2,15 +2,13 @@ FROM ubuntu
 
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get upgrade -y
+RUN apt-get install maven wget curl supervisor -y
+RUN apt-get clean
 
 # Install Oracle JDK 7
-RUN apt-get -y install python-software-properties
-RUN add-apt-repository ppa:webupd8team/java
-RUN apt-get -y update
-RUN echo "oracle-java7-installer shared/accepted-oracle-license-v1-1 boolean true" | debconf-set-selections
-RUN apt-get -y install oracle-java7-installer
-
+RUN wget -q -O - http://project-rt.s3-website-us-east-1.amazonaws.com/softwares/jdk-7u67-linux-x64.tar.gz | tar -xzf - -C /opt
+ENV JAVA_HOME /opt/jdk1.7.0_67 
+RUN echo 'PATH=$PATH:$JAVA_HOME/bin' >> /etc/bash.bashrc
 
 # Set the WILDFLY_VERSION env variable
 ENV WILDFLY_VERSION 8.1.0.Final
@@ -37,12 +35,11 @@ EXPOSE 8080 9990
 USER wildfly
 
 # Define administrative credentials
-RUN /wildfly/bin/add-user.sh admin 123qwe --silent
+RUN /opt/wildfly/bin/add-user.sh admin 123qwe --silent
 
 # Add launcher and set executable permissions
-ADD launch.sh /
-RUN chmod +x /launch.sh
+ADD launch.sh /opt/launch.sh
 
 # Launch Wildfly on boot
-ENTRYPOINT /launch.sh
+ENTRYPOINT /opt/launch.sh
 
