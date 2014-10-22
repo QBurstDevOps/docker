@@ -64,3 +64,15 @@ kafkacli:
   volumes:
     - .:/code
   working_dir: /code
+cassandra:
+  image: qburstdevops/cassandra:single
+  ports:
+   - "7001"
+   - "7199"
+   - "8012"
+   - "9042"
+   - "9160"
+   - "7000"
+  hostname: dsc
+  volumes:
+    - ~/dsc_data:/var/lib/cassandra
