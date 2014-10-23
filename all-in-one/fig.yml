@@ -91,3 +91,9 @@ nodejs:
   ports:
    - "8080"
   hostname: nodejs
+wildfly:
+  image: qburstdevops/wildfly
+  ports:
+   - "8080:8080"
+   - "9990:9990"
+  hostname: wf
