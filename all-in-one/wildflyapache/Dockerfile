@@ -20,7 +20,7 @@ ENV WILDFLY_VERSION 8.1.0.Final
 RUN mkdir /opt/wildfly-$WILDFLY_VERSION
 
 # Add the WildFly distribution to /opt, and make wildfly the owner of the extracted tar content
-RUN cd /opt && curl http://download.jboss.org/wildfly/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz | tar zx /opt/wildfly-$WILDFLY_VERSION
+RUN cd /opt && curl http://download.jboss.org/wildfly/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz | tar zx 
 
 # Make sure the distribution is available from a well-known place
 RUN ln -s /opt/wildfly-$WILDFLY_VERSION /opt/wildfly 
