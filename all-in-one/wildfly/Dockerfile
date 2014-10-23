@@ -20,7 +20,7 @@ EXPOSE 8080 9990
 # This will boot WildFly in the standalone mode and bind to all interface
 
 # Define administrative credentials
-RUN /opti/jboss/wildfly/bin/add-user.sh admin 123qwe --silent
+RUN /opt/jboss/wildfly/bin/add-user.sh admin 123qwe --silent
 
 # Add launcher and set executable permissions
 ADD launch.sh /opt/launch.sh
