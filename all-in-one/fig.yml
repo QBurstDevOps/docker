@@ -80,7 +80,7 @@ cassandra:
    - "7000:7000"
   hostname: dsc
   volumes:
-    - ~/dev/cassandra/dsc_data:/var/lib/cassandra
+    - ~/dev/project-rt/cassandra/dsc_data:/var/lib/cassandra
 postgres:
   image: qburstdevops/postgres
   ports:
