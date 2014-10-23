@@ -21,7 +21,7 @@ supervisor:
   build: storm
   command: supervisor logviewer
   ports:
-    - "8000"
+    - "8000:8000"
   expose:
     - "6700"
   links:
@@ -67,12 +67,21 @@ kafkacli:
 cassandra:
   image: qburstdevops/cassandra:single
   ports:
-   - "7001"
-   - "7199"
-   - "8012"
-   - "9042"
-   - "9160"
-   - "7000"
+   - "7001:7001"
+   - "7199:7199"
+   - "8012:8012"
+   - "9042:9042"
+   - "9160:9160"
+   - "7000:7000"
   hostname: dsc
   volumes:
-    - ~/dsc_data:/var/lib/cassandra
+    - ~/dev/cassandra/dsc_data:/var/lib/cassandra
+postgres:
+  image: qburstdevops/postgres
+  ports:
+   - "5432:5432"
+  hostname: postgres
+nodejs:
+  image: qburstdevops/nodejs
+  ports: 8080
+  hostname: nodejs
