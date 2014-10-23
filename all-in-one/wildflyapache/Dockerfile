@@ -39,6 +39,9 @@ RUN /opt/wildfly/bin/add-user.sh admin 123qwe --silent
 
 # Add launcher and set executable permissions
 ADD launch.sh /opt/launch.sh
+COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY jk.conf /etc/apache2/mods-available/jk.conf
+COPY standalone-ha.xml /opt/wildfly/standalone/configuration/standalone-ha.xml
 
 # Launch Wildfly on boot
 ENTRYPOINT /opt/launch.sh
