@@ -10,7 +10,9 @@ nimbus:
   build: storm
   command: nimbus drpc
   ports:
-    - "46627:6627"
+    - "6627:6627"
+    - "3772:3772"
+    - "3773:3773"
   expose:
     - "3772"
     - "3773"
@@ -22,6 +24,7 @@ supervisor:
   command: supervisor logviewer
   ports:
     - "8000:8000"
+    - "6700:6700"
   expose:
     - "6700"
   links:
@@ -49,6 +52,8 @@ cli:
   working_dir: /code
 kafka:
   build: kafka
+  ports:
+    - "9092:9092"
   expose:
     - "9092"
   hostname: kafka
