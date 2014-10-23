@@ -1,8 +1,8 @@
-FROM ubuntu
+FROM ubuntu:utopic
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get install maven wget curl supervisor -y
+RUN apt-get update && apt-get install apache2 libapache2-mod-jk unzip wget curl vim git maven supervisor -y
+RUN a2enmod ssl 
 RUN apt-get clean
 
 # Install Oracle JDK 7
