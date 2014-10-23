@@ -24,7 +24,6 @@ RUN /opt/jboss/wildfly/bin/add-user.sh admin 123qwe --silent
 
 # Add launcher and set executable permissions
 ADD launch.sh /opt/launch.sh
-RUN chmod +x /opt/launch.sh
 
 # Launch Wildfly on boot
 ENTRYPOINT /opt/launch.sh
