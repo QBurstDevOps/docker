@@ -83,5 +83,5 @@ postgres:
   hostname: postgres
 nodejs:
   image: qburstdevops/nodejs
-  ports: 8080
+  ports: "8080"
   hostname: nodejs
