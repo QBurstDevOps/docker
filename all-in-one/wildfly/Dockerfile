@@ -13,7 +13,7 @@ RUN echo 'PATH=$PATH:$JAVA_HOME/bin' >> /etc/bash.bashrc
 ENV WILDFLY_VERSION 8.1.0.Final
 
 # Create the wildfly user and group
-#RUN groupadd -r wildfly -g 433 && useradd -u 431 -r -g wildfly -d /opt/wildfly -s /sbin/nologin -c "WildFly user" wildfly
+RUN groupadd -r wildfly -g 433 && useradd -u 431 -r -g wildfly -d /opt/wildfly -s /sbin/nologin -c "WildFly user" wildfly
 
 # Create directory to extract tar file to
 RUN mkdir /opt/wildfly-$WILDFLY_VERSION
