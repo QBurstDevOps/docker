@@ -29,7 +29,7 @@ RUN ln -s /opt/wildfly-$WILDFLY_VERSION /opt/wildfly && chown -R wildfly:wildfly
 ENV JBOSS_HOME /opt/wildfly
 
 # Expose the ports we're interested in
-EXPOSE 8080 9990
+EXPOSE 80 8080 9990 8009
 
 # Run everything below as the wildfly user
 USER wildfly
