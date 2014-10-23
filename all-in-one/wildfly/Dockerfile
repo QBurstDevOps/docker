@@ -34,7 +34,7 @@ EXPOSE 8080 9990 8009
 USER wildfly
 
 # Define administrative credentials
-RUN /wildfly/bin/add-user.sh admin 123qwe --silent
+RUN /opt/wildfly/bin/add-user.sh admin 123qwe --silent
 
 # Add launcher and set executable permissions
 ADD launch.sh /opt/launch.sh
