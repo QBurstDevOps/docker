@@ -14,16 +14,16 @@ RUN echo 'PATH=$PATH:$JAVA_HOME/bin' >> /etc/bash.bashrc
 ENV WILDFLY_VERSION 8.1.0.Final
 
 # Create the wildfly user and group
-RUN groupadd -r wildfly -g 433 && useradd -u 431 -r -g wildfly -d /opt/wildfly -s /sbin/nologin -c "WildFly user" wildfly
+#RUN groupadd -r wildfly -g 433 && useradd -u 431 -r -g wildfly -d /opt/wildfly -s /sbin/nologin -c "WildFly user" wildfly
 
 # Create directory to extract tar file to
 RUN mkdir /opt/wildfly-$WILDFLY_VERSION
 
 # Add the WildFly distribution to /opt, and make wildfly the owner of the extracted tar content
-RUN cd /opt && curl http://download.jboss.org/wildfly/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz | tar zx && chown -R wildfly:wildfly /opt/wildfly-$WILDFLY_VERSION
+RUN cd /opt && curl http://download.jboss.org/wildfly/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz | tar zx /opt/wildfly-$WILDFLY_VERSION
 
 # Make sure the distribution is available from a well-known place
-RUN ln -s /opt/wildfly-$WILDFLY_VERSION /opt/wildfly && chown -R wildfly:wildfly /opt/wildfly
+RUN ln -s /opt/wildfly-$WILDFLY_VERSION /opt/wildfly 
 
 # Set the JBOSS_HOME env variable
 ENV JBOSS_HOME /opt/wildfly
@@ -32,7 +32,7 @@ ENV JBOSS_HOME /opt/wildfly
 EXPOSE 80 8080 9990 8009
 
 # Run everything below as the wildfly user
-USER wildfly
+#USER wildfly
 
 # Define administrative credentials
 RUN /opt/wildfly/bin/add-user.sh admin 123qwe --silent
