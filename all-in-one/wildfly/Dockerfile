@@ -16,14 +16,11 @@ ENV JBOSS_HOME /opt/jboss/wildfly
 # Expose the ports we're interested in
 EXPOSE 8080 9990
 
-# Set the default command to run on boot
-# This will boot WildFly in the standalone mode and bind to all interface
-
 # Define administrative credentials
 RUN /opt/jboss/wildfly/bin/add-user.sh admin 123qwe --silent
 
-# Add launcher and set executable permissions
-ADD launch.sh /opt/launch.sh
+# Set the default command to run on boot
+# This will boot WildFly in the standalone mode and bind to all interface
+CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
 
-# Launch Wildfly on boot
-ENTRYPOINT /opt/launch.sh
+
