@@ -5,7 +5,7 @@ RUN apt-get update
 RUN apt-get upgrade -y
 
 # Install Oracle JDK 7
-RUN apt-get -y install python-software-properties wget maven curl vim-full git
+RUN apt-get -y install python-software-properties wget maven curl vi git
 RUN apt-get clean
 RUN wget -q -O - http://project-rt.s3-website-us-east-1.amazonaws.com/softwares/jdk-7u67-linux-x64.tar.gz | tar -xzf - -C /opt
 ENV JAVA_HOME /opt/jdk1.7.0_67
