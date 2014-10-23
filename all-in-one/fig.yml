@@ -1,7 +1,7 @@
 zookeeper:
   build: zookeeper
   ports:
-    - "42181:2181"
+    - "2181:2181"
   expose:
     - "2888"
     - "3888"
