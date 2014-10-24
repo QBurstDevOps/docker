@@ -1,5 +1,5 @@
 zookeeper:
-  build: zookeeper
+  image: qburstdevops/zookeeper
   ports:
     - "2181:2181"
   expose:
@@ -7,7 +7,7 @@ zookeeper:
     - "3888"
   hostname: zookeeper
 nimbus:
-  build: storm
+  image: qburstdevops/storm
   command: nimbus drpc
   ports:
     - "6627:6627"
@@ -20,7 +20,7 @@ nimbus:
     - zookeeper:zk
   hostname: nimbus
 supervisor:
-  build: storm
+  image: qburstdevops/storm
   command: supervisor logviewer
   ports:
     - "8000:8000"
@@ -32,7 +32,7 @@ supervisor:
     - zookeeper:zk
   hostname: supervisor
 ui:
-  build: storm
+  image: qburstdevops/storm
   command: ui
   ports:
     - "48080:8080"
@@ -41,7 +41,7 @@ ui:
     - zookeeper:zk
   hostname: ui
 cli:
-  build: storm
+  image: qburstdevops/storm
   command: cli
   links:
     - nimbus:nimbus
@@ -51,7 +51,7 @@ cli:
     - .:/code
   working_dir: /code
 kafka:
-  build: kafka
+  image: qburstdevops/kafka
   ports:
     - "9092:9092"
   expose:
@@ -60,7 +60,7 @@ kafka:
   links:
     - zookeeper:zk
 kafkacli:
-  build: kafka
+  image: qburstdevops/kafka
   command: cli
   links:
     - zookeeper:zk
