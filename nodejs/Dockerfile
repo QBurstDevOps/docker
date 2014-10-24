@@ -13,7 +13,7 @@ RUN \
   rm -f /opt/node-v0.10.29-linux-x64.tar.gz
   
 # Bundle app source
-COPY . /src
+COPY ./code/ /src
 # Install app dependencies
 RUN cd /src; npm install
 
