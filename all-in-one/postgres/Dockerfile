@@ -28,8 +28,8 @@ USER postgres
 # Note: here we use ``&&\`` to run commands one after the other - the ``\``
 #       allows the RUN command to span multiple lines.
 RUN    /etc/init.d/postgresql start &&\
-    psql --command "CREATE USER pgadminuser WITH SUPERUSER PASSWORD 'pgadmin@password';" &&\
-    createdb -O pgadminuser testdb
+    psql --command "CREATE USER pgadminuser WITH SUPERUSER PASSWORD 'pgadminpassword';" &&\
+    createdb -O pgadminuser insight
 
 # Adjust PostgreSQL configuration so that remote connections to the
 # database are possible. 
